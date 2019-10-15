@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" />
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        
+    {% block head_js %}
+    {% endblock head_js %}   
     </head>
     <body>
         <nav class="navbar navbar-default">
             <ul class="nav navbar-nav">
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i>Profile</a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'registration' %}">Register</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
                 {% endif %}
                 <li>
                     <a href="{% url 'view_cart' %}">
